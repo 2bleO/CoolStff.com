@@ -6,9 +6,9 @@ import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCppfzMb0axZYYGW5b181p15ua6OndrbV0",
-  authDomain: "coolstuff-458f3.firebaseapp.com",
+  authDomain: "coolstff.netlify.app",
   projectId: "coolstuff-458f3",
-  storageBucket: "coolstuff-458f3.firebasestorage.app",
+  storageBucket: "coolstuff-458f3.appspot.com",
   messagingSenderId: "293657075375",
   appId: "1:293657075375:web:e5ba575e9d4096e1167e5a",
   measurementId: "G-YMCGDT9661"
