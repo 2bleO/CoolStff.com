@@ -1,18 +1,17 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 import { getAnalytics } from 'firebase/analytics';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCppfzMb0axZYYGW5b181p15ua6OndrbV0",
-  authDomain: "coolstuff-458f3.firebaseapp.com",
-  projectId: "coolstuff-458f3",
-  storageBucket: "coolstuff-458f3.appspot.com",
-  messagingSenderId: "293657075375",
-  appId: "1:293657075375:web:e5ba575e9d4096e1167e5a",
-  measurementId: "G-YMCGDT9661",
-  cookieDomain: "coolstff.com"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -21,13 +20,6 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const storage = getStorage(app);
 export const analytics = getAnalytics(app);
-
-// Initialize Firestore with modern persistence settings
-export const db = initializeFirestore(app, {
-  localCache: persistentLocalCache({
-    tabManager: persistentMultipleTabManager(),
-    cacheSizeBytes: 50000000 // 50MB cache size
-  })
-});
+export const db = getFirestore(app);
 
 export default app;
